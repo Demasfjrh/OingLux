@@ -37,6 +37,11 @@ async function main() {
             description: 'Electric neon vibes for city and night photos.',
             imageUrl: 'https://th.bing.com/th/id/OIP.iVDCZoysUgWpxe7Z5hwQygHaJQ?w=202&h=253&c=7&r=0&o=5&dpr=1.1&pid=1.7',
           },
+          {
+            title: 'Urban Neon',
+            description: 'Electric neon vibes for city and night photos.',
+            imageUrl: 'https://th.bing.com/th/id/OIP.iVDCZoysUgWpxe7Z5hwQygHaJQ?w=202&h=253&c=7&r=0&o=5&dpr=1.1&pid=1.7',
+          },
         ],
       },
     },

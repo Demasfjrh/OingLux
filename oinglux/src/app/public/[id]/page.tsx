@@ -2,35 +2,54 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useParams, useRouter } from "next/navigation";
-
-const presets = [
-  {
-    id: "1",
-    title: "Sunset Glow",
-    author: "Jane Doe",
-    description: "Warm, vibrant tones for sunset photography.",
-    imageUrl: "/sample-preset-1.jpg",
-  },
-  {
-    id: "2",
-    title: "Moody Forest",
-    author: "John Smith",
-    description: "Deep greens and contrast for woodland shots.",
-    imageUrl: "/sample-preset-2.jpg",
-  },
-  {
-    id: "3",
-    title: "Urban Neon",
-    author: "Alex Lee",
-    description: "Electric neon vibes for city and night photos.",
-    imageUrl: "/sample-preset-3.jpg",
-  },
-];
+import { getPresetById } from "../actions";
+import { useEffect, useState } from "react";
 
 export default function PresetDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const preset = presets.find((p) => p.id === params.id);
+  const [preset, setPreset] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    async function fetchPreset() {
+      setLoading(true);
+      try {
+        const data = await getPresetById(params.id as string);
+        setPreset(data);
+      } catch (err: any) {
+        setError(err instanceof Error ? err : new Error(String(err)));
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (params.id) fetchPreset();
+  }, [params.id]);
+
+  if (loading) {
+    return (
+      <div className="flex flex-col min-h-screen bg-[#F8F3D9]">
+        <Header />
+        <main className="flex-1 flex flex-col items-center justify-center">
+          <h1 className="text-2xl text-[#504B38] font-bold">Loading preset...</h1>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col min-h-screen bg-[#F8F3D9]">
+        <Header />
+        <main className="flex-1 flex flex-col items-center justify-center">
+          <h1 className="text-2xl text-[#504B38] font-bold">Error: {error.message}</h1>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!preset) {
     return (
