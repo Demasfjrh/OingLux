@@ -4,7 +4,6 @@ import Link from "next/link";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/public", label: "Lihat Preset" },
-  { href: "/login", label: "Login" },
 ];
 
 const Header = () => {

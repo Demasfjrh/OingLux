@@ -1,3 +1,5 @@
+'use server'
+
 import { prisma } from "@/config/prisma";
 
 export async function getAllPresets() {
@@ -18,4 +20,19 @@ export async function getAllPresets() {
     description: preset.description,
     imageUrl: preset.imageUrl,
   }));
+}
+
+export async function getPresetById(id: string) {
+  const preset = await prisma.preset.findUnique({
+    where: { id },
+    include: { author: { select: { name: true } } },
+  });
+  if (!preset) return null;
+  return {
+    id: preset.id,
+    title: preset.title,
+    author: preset.author?.name || "Unknown",
+    description: preset.description,
+    imageUrl: preset.imageUrl,
+  };
 }
