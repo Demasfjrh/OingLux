@@ -21,16 +21,29 @@ const Footer = () => (
       <div>
         <div className="font-semibold mb-2 text-[#EBE5C2]">Authors</div>
         <ul className="space-y-1 text-sm">
-          <li><a href="#for-authors" className="hover:text-[#B9B28A]">For Authors</a></li>
-          <li><a href="/login" className="hover:text-[#B9B28A]">Login</a></li>
+          <li>
+            <span className="block font-medium">Designer:</span>
+            <a href="mailto:oinglolot99@gmail.com" className="hover:text-[#B9B28A] flex items-center space-x-1">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm2 2h16v.511l-8 6.222-8-6.222V6zm0 2.489l7.445 5.795a1 1 0 0 0 1.11 0L20 8.489V18H4V8.489z"/></svg>
+              <span>oinglolot99@gmail.com</span>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#B9B28A] flex items-center space-x-1 mt-1">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li className="mt-2">
+            <span className="block font-medium">Developer:</span>
+            <a href="mailto:demasfjanitro@gmail.com" className="hover:text-[#B9B28A] flex items-center space-x-1">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm2 2h16v.511l-8 6.222-8-6.222V6zm0 2.489l7.445 5.795a1 1 0 0 0 1.11 0L20 8.489V18H4V8.489z"/></svg>
+              <span>demasfjanitro@gmail.com</span>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#B9B28A] flex items-center space-x-1 mt-1">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+              <span>Instagram</span>
+            </a>
+          </li>
         </ul>
-      </div>
-      <div>
-        <div className="font-semibold mb-2 text-[#EBE5C2]">Newsletter</div>
-        <form className="flex flex-col space-y-2">
-          <input type="email" placeholder="Your email" className="px-3 py-2 rounded bg-[#B9B28A] text-[#504B38] focus:outline-none focus:ring-2 focus:ring-[#F8F3D9]" />
-          <button type="submit" className="bg-[#EBE5C2] hover:bg-[#F8F3D9] transition text-[#504B38] rounded px-3 py-2 font-semibold">Subscribe</button>
-        </form>
       </div>
     </div>
     <div className="text-center text-xs text-[#B9B28A] mt-8">&copy; {new Date().getFullYear()} Lightroom Preset Hub. All rights reserved.</div>
